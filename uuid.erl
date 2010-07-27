@@ -29,11 +29,14 @@
 % SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %  
 -module(uuid).
--export([v4/0, to_string/1, get_parts/1]).
+-export([v4/0,v4_string/0, to_string/1, get_parts/1]).
 -import(random).
 
 r(N) ->
     random:uniform(1 bsl N) - 1.
+
+v4_string() ->
+	to_string(v4()).
 
 v4() ->
     v4(r(48), r(12), r(32), r(30)).
